@@ -13,7 +13,7 @@ namespace SVID_Scraper
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            Console.WriteLine("Remove names from groups which cannot be converted to SVID because of having space at the end? (Y/N)");
+            Console.WriteLine("Include names? (Y/N)");
             string input = Console.ReadLine();
             while (input.ToLower() != "n" && input.ToLower() != "no" && input.ToLower() != "y" && input.ToLower() != "yes")
             {
@@ -25,14 +25,14 @@ namespace SVID_Scraper
 
             char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
             List<int> numberList = Enumerable.Range(0, 9).ToList();
-            
-            List<string> tableeall = new List<string>();
+
+            List<string> tableeallsvid = new List<string>();
 
             foreach (var c in az)
             {
                 HtmlDocument doc = web.Load("https://spookvooper.com/User/Search/" + c);
 
-                List<string> list = new List<string>();
+                List<string> listsvid = new List<string>();
 
                 foreach (HtmlNode table in doc.DocumentNode.SelectNodes("//table"))
                 {
@@ -45,14 +45,13 @@ namespace SVID_Scraper
                             ///This the cell.
                             foreach (HtmlNode pain in cell.SelectNodes("a"))
                             {
-                                string text = Regex.Replace(pain.InnerText, @"\s+", "");
-                                list.Add(text);
+                                listsvid.Add(pain.GetAttributeValue("href", "").Replace("/User/Info?svid=", ""));
                             }
                         }
                     }
                 }
 
-                tableeall.AddRange(list);
+                tableeallsvid.AddRange(listsvid);
                 await Task.Delay(100);
             }
 
@@ -61,7 +60,7 @@ namespace SVID_Scraper
 
                 HtmlDocument doc = web.Load("https://spookvooper.com/User/Search/" + c);
 
-                List<string> list = new List<string>();
+                List<string> listsvid = new List<string>();
 
                 foreach (HtmlNode table in doc.DocumentNode.SelectNodes("//table"))
                 {
@@ -74,41 +73,43 @@ namespace SVID_Scraper
                             ///This the cell.
                             foreach (HtmlNode pain in cell.SelectNodes("a"))
                             {
-                                string text = Regex.Replace(pain.InnerText, @"\s+", "");
-                                list.Add(text);
+                                listsvid.Add(pain.GetAttributeValue("href", "").Replace("/User/Info?svid=", ""));
                             }
                         }
                     }
                 }
 
-                tableeall.AddRange(list);
+                tableeallsvid.AddRange(listsvid);
                 await Task.Delay(100);
             }
 
-            List<string> nodupetableall = tableeall.Distinct().ToList();
+            List<string> nodupetableallsvid = tableeallsvid.Distinct().ToList();
 
-            nodupetableall.RemoveAt(0);
+            nodupetableallsvid.RemoveAt(0);
 
-            TextWriter twname = new StreamWriter("allUserNames.txt");
             TextWriter twsvid = new StreamWriter("allUserSVIDs.txt");
+            TextWriter twname = new StreamWriter("allUserNames.txt");
 
-            foreach (String s in nodupetableall)
+            foreach (String s in nodupetableallsvid)
             {
-                twname.WriteLine(s);
-                string SVID = await SpookVooperAPI.Users.GetSVIDFromUsername(s);
-                twsvid.WriteLine(SVID);
+                twsvid.WriteLine(s);
+                if (input.ToLower() != "y" || input.ToLower() != "yes")
+                {
+                    twname.WriteLine(await SpookVooperAPI.Users.GetUsername(s));
+                }
                 await Task.Delay(100);
             }
             twname.Close();
             twsvid.Close();
-            
-            List<string> tableeallgroups = new List<string>();
-       
+
+            List<string> tableeallgroupssvid = new List<string>();
+
+
             foreach (var c in az)
             {
                 HtmlDocument doc = web.Load("https://spookvooper.com/Group/Search/" + c);
 
-                List<string> list = new List<string>();
+                List<string> listsvid = new List<string>();
 
                 foreach (HtmlNode table in doc.DocumentNode.SelectNodes("//table"))
                 {
@@ -121,14 +122,13 @@ namespace SVID_Scraper
                             ///This the cell.
                             foreach (HtmlNode pain in cell.SelectNodes("a"))
                             {
-                                string text = pain.InnerText.TrimStart().TrimEnd().TrimEnd('\n', '\r');
-                                list.Add(text);
+                                listsvid.Add(pain.GetAttributeValue("href", "").Replace("/User/Info?svid=", ""));
                             }
                         }
                     }
                 }
 
-                tableeallgroups.AddRange(list);
+                tableeallgroupssvid.AddRange(listsvid);
                 await Task.Delay(100);
             }
 
@@ -137,7 +137,7 @@ namespace SVID_Scraper
 
                 HtmlDocument doc = web.Load("https://spookvooper.com/Group/Search/" + c);
 
-                List<string> list = new List<string>();
+                List<string> listsvid = new List<string>();
 
                 foreach (HtmlNode table in doc.DocumentNode.SelectNodes("//table"))
                 {
@@ -150,18 +150,16 @@ namespace SVID_Scraper
                             ///This the cell.
                             foreach (HtmlNode pain in cell.SelectNodes("a"))
                             {
-                                string text = pain.InnerText.TrimStart().TrimEnd().TrimEnd('\n','\r');
-                                list.Add(text);
+                                listsvid.Add(pain.GetAttributeValue("href", "").Replace("/User/Info?svid=", ""));
                             }
                         }
                     }
                 }
 
-                tableeallgroups.AddRange(list);
                 await Task.Delay(100);
             }
 
-            List<string> nodupetableallgroups = tableeallgroups.Distinct().ToList();
+            List<string> nodupetableallgroups = tableeallgroupssvid.Distinct().ToList();
 
             nodupetableallgroups.RemoveAt(0);
 
@@ -170,21 +168,15 @@ namespace SVID_Scraper
 
             foreach (String s in nodupetableallgroups)
             {
-                string SVID = await SpookVooperAPI.Groups.GetSVIDFromName(s.TrimEnd());
-                if (SVID != null)
+                twnamegroups.WriteLine(s);
+                if (input.ToLower() != "y" || input.ToLower() != "yes")
                 {
-                    twsvidgroups.WriteLine(SVID);
-                    if (input.ToLower() == "n" || input.ToLower() == "no")
-                    {
-                        twnamegroups.WriteLine(s);
-                    }
+                    twname.WriteLine(await SpookVooperAPI.Groups.GetName(s));
                 }
                 await Task.Delay(100);
             }
             twnamegroups.Close();
             twsvidgroups.Close();
-            
-            Console.WriteLine(nodupetableall.Count());
         }
     }
 }
