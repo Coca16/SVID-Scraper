@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVID-Scraper", "SVID-Scraper.csproj", "{7DFF7D56-E1A1-4FB3-8515-B37CE0F3F2A0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpookVooper.Api", "SpookVooper.Api\SpookVooper.Api\SpookVooper.Api.csproj", "{34C07776-30A2-478C-85B7-56F2C441F684}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7DFF7D56-E1A1-4FB3-8515-B37CE0F3F2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DFF7D56-E1A1-4FB3-8515-B37CE0F3F2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DFF7D56-E1A1-4FB3-8515-B37CE0F3F2A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34C07776-30A2-478C-85B7-56F2C441F684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34C07776-30A2-478C-85B7-56F2C441F684}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34C07776-30A2-478C-85B7-56F2C441F684}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34C07776-30A2-478C-85B7-56F2C441F684}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,70 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SVID-Scraper/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.11.25",
+          "SpookVooper.Api": "1.1.0"
+        },
+        "runtime": {
+          "SVID-Scraper.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.11.25": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.25.0",
+            "fileVersion": "1.11.25.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "SpookVooper.Api/1.1.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "SpookVooper.Api.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SVID-Scraper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HtmlAgilityPack/1.11.25": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UO02+QzWpKDhz2XApSZ74S+9fylNrK9npqvO4NgtW9LiFLHVRqXQmdI+1tn7JRzGnATkCCbtyIeqbJZl3pSRJQ==",
+      "path": "htmlagilitypack/1.11.25",
+      "hashPath": "htmlagilitypack.1.11.25.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "SpookVooper.Api/1.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

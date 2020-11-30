@@ -3,15 +3,16 @@ using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
 using System.IO;
+using SpookVooper.Api.Entities;
 using SpookVooper.Api;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using SpookVooper.Api.Entities.Groups;
 
 namespace SVID_Scraper
 {
     class Program
     {
-        static async System.Threading.Tasks.Task Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Include names? (Y/N)");
             string input = Console.ReadLine();
@@ -25,7 +26,7 @@ namespace SVID_Scraper
 
             char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
             List<int> numberList = Enumerable.Range(0, 9).ToList();
-
+            
             List<string> tableeallsvid = new List<string>();
 
             foreach (var c in az)
@@ -95,13 +96,14 @@ namespace SVID_Scraper
                 twsvid.WriteLine(s);
                 if (input.ToLower() != "y" || input.ToLower() != "yes")
                 {
-                    twname.WriteLine(await SpookVooperAPI.Users.GetUsername(s));
+                    User user = new User(s);
+                    twname.WriteLine(await user.GetUsernameAsync());
                 }
                 await Task.Delay(100);
             }
             twname.Close();
             twsvid.Close();
-
+            
             List<string> tableeallgroupssvid = new List<string>();
 
 
@@ -171,7 +173,8 @@ namespace SVID_Scraper
                 twnamegroups.WriteLine(s);
                 if (input.ToLower() != "y" || input.ToLower() != "yes")
                 {
-                    twname.WriteLine(await SpookVooperAPI.Groups.GetName(s));
+                    Group group = new Group(s);
+                    twname.WriteLine(await group.GetNameAsync());
                 }
                 await Task.Delay(100);
             }

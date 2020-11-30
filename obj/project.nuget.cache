@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZeFWHuJSyHz4juFx5adxhIYr2Unfe352ToGEVTqWfRiFSSAvzooqKFaxTCuvCYL08IXBDvADnBZqd0pEgfQYDg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kompot\\Documents\\Csharp coding\\SVID-Scraper\\SVID-Scraper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kompot\\.nuget\\packages\\htmlagilitypack\\1.11.25\\htmlagilitypack.1.11.25.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\5.0.0\\microsoft.aspnetcore.connections.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\5.0.0\\microsoft.aspnetcore.http.connections.client.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common\\5.0.0\\microsoft.aspnetcore.http.connections.common.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.0\\microsoft.aspnetcore.http.features.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.signalr.client\\5.0.0\\microsoft.aspnetcore.signalr.client.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\5.0.0\\microsoft.aspnetcore.signalr.client.core.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\5.0.0\\microsoft.aspnetcore.signalr.common.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\5.0.0\\microsoft.aspnetcore.signalr.protocols.json.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\spookvooper.api\\1.3.13\\spookvooper.api.1.3.13.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\system.io.pipelines\\5.0.0\\system.io.pipelines.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kompot\\.nuget\\packages\\system.threading.channels\\5.0.0\\system.threading.channels.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
